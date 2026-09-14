@@ -1,1 +1,1412 @@
-Doctype HTML, HTML, head with title LeafSync, body with a heading that says "LeafSync Beta 1.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#163f32" />
+
+  <title>LeafSync</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #163f32;
+      --green-light: #245c49;
+      --green-pale: #eaf2ee;
+      --gold: #d6b66b;
+      --cream: #f6f5f0;
+      --white: #ffffff;
+      --text: #202722;
+      --muted: #758078;
+      --border: #e1e6e2;
+      --danger: #a84343;
+      --shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: #dfe4e1;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 480px;
+      margin: auto;
+      background: var(--cream);
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 90px;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+
+    .header {
+      background: var(--green);
+      color: white;
+      padding: 26px 22px 28px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      color: var(--green);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      font-weight: 900;
+      transform: rotate(-3deg);
+    }
+
+    .brand h1 {
+      font-size: 25px;
+      line-height: 1;
+      letter-spacing: -0.7px;
+    }
+
+    .tagline {
+      color: #cbd9d3;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .avatar {
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.25);
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .welcome {
+      margin-top: 27px;
+    }
+
+    .welcome p {
+      color: #cbd9d3;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .welcome h2 {
+      font-size: 25px;
+      letter-spacing: -0.5px;
+    }
+
+    /* MAIN */
+
+    .content {
+      padding: 22px 18px;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      font-size: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 17px;
+      padding: 15px 10px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--green);
+      font-size: 22px;
+      margin-bottom: 3px;
+    }
+
+    .stat span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* JOB CARDS */
+
+    .job-card {
+      background: white;
+      border-radius: 20px;
+      padding: 17px;
+      margin-bottom: 13px;
+      box-shadow: var(--shadow);
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+
+    .job-card:active {
+      transform: scale(.99);
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .time {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .job-card h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .address {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 9px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .badge.next {
+      background: #fff5dc;
+      color: #8b6818;
+    }
+
+    .badge.scheduled {
+      background: var(--green-pale);
+      color: var(--green);
+    }
+
+    .badge.complete {
+      background: #def2e4;
+      color: #236238;
+    }
+
+    .tasks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 13px;
+    }
+
+    .task-chip {
+      background: #f1f3f1;
+      color: #59635d;
+      border-radius: 20px;
+      padding: 6px 9px;
+      font-size: 10px;
+    }
+
+    .open-job {
+      width: 100%;
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 13px;
+      padding: 12px;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    /* BUTTONS */
+
+    .primary {
+      width: 100%;
+      border: none;
+      background: var(--green);
+      color: white;
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .secondary {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--green);
+      padding: 14px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+
+    .back {
+      border: none;
+      background: transparent;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding: 5px 0;
+    }
+
+    /* JOB DETAILS */
+
+    .detail-card {
+      background: white;
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 15px;
+    }
+
+    .detail-card h2 {
+      margin-bottom: 6px;
+    }
+
+    .detail-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: .8px;
+      font-weight: 800;
+      margin: 18px 0 8px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .check-row:last-child {
+      border-bottom: none;
+    }
+
+    .check-row input {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--green);
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fafbfa;
+      border-radius: 12px;
+      padding: 13px;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .button-stack {
+      display: grid;
+      gap: 9px;
+      margin-top: 15px;
+    }
+
+    /* COMPLIANCE */
+
+    .progress-wrap {
+      margin-bottom: 18px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .progress {
+      height: 8px;
+      background: #dfe6e2;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: var(--green);
+      transition: .25s;
+    }
+
+    .compliance-item {
+      background: white;
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 9px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 4px 15px rgba(0,0,0,.04);
+    }
+
+    .compliance-item input {
+      width: 21px;
+      height: 21px;
+      accent-color: var(--green);
+      margin-top: 1px;
+    }
+
+    .compliance-item strong {
+      font-size: 14px;
+      display: block;
+    }
+
+    .compliance-item small {
+      display: block;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* INVOICE */
+
+    .invoice {
+      background: white;
+      padding: 22px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .invoice-head {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .invoice-number {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .invoice-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .invoice-total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    /* CUSTOMERS */
+
+    .customer {
+      background: white;
+      border-radius: 17px;
+      padding: 16px;
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.04);
+    }
+
+    .customer-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .customer strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .customer small {
+      color: var(--muted);
+    }
+
+    /* SETTINGS */
+
+    .settings-card {
+      background: white;
+      border-radius: 20px;
+      padding: 5px 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .setting {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .setting:last-child {
+      border-bottom: none;
+    }
+
+    .setting span {
+      font-size: 14px;
+    }
+
+    .setting small {
+      display: block;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* SUCCESS */
+
+    .success {
+      text-align: center;
+      padding: 35px 10px;
+    }
+
+    .success-icon {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      margin: auto auto 20px;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .success h2 {
+      margin-bottom: 8px;
+    }
+
+    .success p {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    /* NAVIGATION */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 72px;
+      background: rgba(255,255,255,.96);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-btn {
+      border: 0;
+      background: transparent;
+      color: #929a95;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .nav-btn .icon {
+      font-size: 21px;
+    }
+
+    .nav-btn.active {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 88px;
+      transform: translate(-50%, 20px);
+      background: #202722;
+      color: white;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s;
+      z-index: 200;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (min-width: 600px) {
+      body {
+        padding: 30px 0;
+      }
+
+      .app {
+        min-height: calc(100vh - 60px);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      }
+
+      .bottom-nav {
+        bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="logo">L</div>
+
+        <div>
+          <h1>LeafSync</h1>
+          <div class="tagline">Landscaping. In sync.</div>
+        </div>
+      </div>
+
+      <div class="avatar">PK</div>
+    </div>
+
+    <div class="welcome">
+      <p>Good afternoon</p>
+      <h2>Ready for the day?</h2>
+    </div>
+  </header>
+
+
+  <main class="content">
+
+    <!-- DASHBOARD -->
+
+    <section id="dashboard" class="screen active">
+
+      <div class="stats">
+        <div class="stat">
+          <strong id="jobCount">3</strong>
+          <span>Jobs today</span>
+        </div>
+
+        <div class="stat">
+          <strong id="completeCount">0</strong>
+          <span>Completed</span>
+        </div>
+
+        <div class="stat">
+          <strong>£150</strong>
+          <span>Today</span>
+        </div>
+      </div>
+
+
+      <div class="section-heading">
+        <h2>Today's Jobs</h2>
+        <span class="date">14 September</span>
+      </div>
+
+
+      <div class="job-card" id="job1">
+        <div class="job-top">
+          <div>
+            <div class="time">09:00</div>
+            <h3>Manor Farm House</h3>
+            <div class="address">
+              Garden maintenance
+            </div>
+          </div>
+
+          <span class="badge next" id="job1Badge">NEXT</span>
+        </div>
+
+        <div class="tasks">
+          <span class="task-chip">Mowing</span>
+          <span class="task-chip">Strimming</span>
+          <span class="task-chip">Hedge cutting</span>
+        </div>
+
+        <button class="open-job" onclick="openJob()">
+          Open Job
+        </button>
+      </div>
+
+
+      <div class="job-card">
+        <div class="job-top">
+          <div>
+            <div class="time">11:30</div>
+            <h3>Oak View</h3>
+            <div class="address">
+              Lawn Rescue
+            </div>
+          </div>
+
+          <span class="badge scheduled">SCHEDULED</span>
+        </div>
+
+        <div class="tasks">
+          <span class="task-chip">Scarify</span>
+          <span class="task-chip">Seed</span>
+          <span class="task-chip">Topsoil</span>
+        </div>
+
+        <button class="open-job" onclick="toast('Job opened')">
+          Open Job
+        </button>
+      </div>
+
+
+      <div class="job-card">
+        <div class="job-top">
+          <div>
+            <div class="time">14:30</div>
+            <h3>Willow Cottage</h3>
+            <div class="address">
+              Garden & maintenance
+            </div>
+          </div>
+
+          <span class="badge scheduled">SCHEDULED</span>
+        </div>
+
+        <div class="tasks">
+          <span class="task-chip">Weeding</span>
+          <span class="task-chip">Pruning</span>
+          <span class="task-chip">Waste removal</span>
+        </div>
+
+        <button class="open-job" onclick="toast('Job opened')">
+          Open Job
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- JOB DETAILS -->
+
+    <section id="jobDetails" class="screen">
+
+      <button class="back" onclick="showScreen('dashboard')">
+        ← Back to jobs
+      </button>
+
+      <div class="detail-card">
+
+        <div class="time">09:00 – 11:00</div>
+
+        <h2>Manor Farm House</h2>
+
+        <div class="address">
+          Garden maintenance
+        </div>
+
+
+        <div class="detail-label">
+          Work scheduled
+        </div>
+
+        <label class="check-row">
+          <input type="checkbox" class="jobTask">
+          <span>Mow lawns</span>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" class="jobTask">
+          <span>Strim lawn edges</span>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" class="jobTask">
+          <span>Cut hedges</span>
+        </label>
+
+        <label class="check-row">
+          <input type="checkbox" class="jobTask">
+          <span>Remove green waste</span>
+        </label>
+
+
+        <div class="detail-label">
+          Job notes
+        </div>
+
+        <textarea
+          id="jobNotes"
+          placeholder="Add notes about today's job..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="button-stack">
+
+        <button class="secondary" onclick="showScreen('compliance')">
+          Complete Compliance Check
+        </button>
+
+        <button class="secondary" onclick="toast('Photo added to job')">
+          + Add Photos
+        </button>
+
+        <button class="primary" onclick="completeJob()">
+          Complete Job
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMPLIANCE -->
+
+    <section id="compliance" class="screen">
+
+      <button class="back" onclick="showScreen('jobDetails')">
+        ← Back to job
+      </button>
+
+
+      <div class="section-heading">
+        <div>
+          <h2>Compliance Check</h2>
+          <span class="date">Manor Farm House</span>
+        </div>
+      </div>
+
+
+      <div class="progress-wrap">
+
+        <div class="progress-label">
+          <span>Safety check</span>
+          <span id="progressText">0 / 5</span>
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+      </div>
+
+
+      <label class="compliance-item">
+        <input type="checkbox" class="complianceCheck">
+
+        <div>
+          <strong>PPE checked</strong>
+          <small>
+            Appropriate PPE is available and being worn.
+          </small>
+        </div>
+      </label>
+
+
+      <label class="compliance-item">
+        <input type="checkbox" class="complianceCheck">
+
+        <div>
+          <strong>Tools inspected</strong>
+          <small>
+            Equipment is safe, secure and fit for use.
+          </small>
+        </div>
+      </label>
+
+
+      <label class="compliance-item">
+        <input type="checkbox" class="complianceCheck">
+
+        <div>
+          <strong>Work area assessed</strong>
+          <small>
+            Hazards and access issues have been identified.
+          </small>
+        </div>
+      </label>
+
+
+      <label class="compliance-item">
+        <input type="checkbox" class="complianceCheck">
+
+        <div>
+          <strong>Public & property protected</strong>
+          <small>
+            Safe working distance and protection are in place.
+          </small>
+        </div>
+      </label>
+
+
+      <label class="compliance-item">
+        <input type="checkbox" class="complianceCheck">
+
+        <div>
+          <strong>Weather conditions safe</strong>
+          <small>
+            Conditions are suitable for the planned work.
+          </small>
+        </div>
+      </label>
+
+
+      <button
+        class="primary"
+        style="margin-top:15px"
+        onclick="saveCompliance()"
+      >
+        Save Compliance Check
+      </button>
+
+    </section>
+
+
+    <!-- INVOICE -->
+
+    <section id="invoice" class="screen">
+
+      <button class="back" onclick="showScreen('dashboard')">
+        ← Dashboard
+      </button>
+
+
+      <div class="section-heading">
+        <div>
+          <h2>Invoice Preview</h2>
+          <span class="date">Ready to send</span>
+        </div>
+      </div>
+
+
+      <div class="invoice">
+
+        <div class="invoice-head">
+          <div>
+            <strong>LeafSync Demo</strong>
+            <div class="invoice-number">
+              Landscaping Services
+            </div>
+          </div>
+
+          <div class="invoice-number">
+            INV-001
+          </div>
+        </div>
+
+
+        <div class="detail-label">
+          Customer
+        </div>
+
+        <strong>Manor Farm House</strong>
+
+
+        <div class="invoice-row">
+          <span>Garden maintenance</span>
+          <strong>£150.00</strong>
+        </div>
+
+        <div class="invoice-row">
+          <span>VAT</span>
+          <span>£0.00</span>
+        </div>
+
+        <div class="invoice-total">
+          <span>Total</span>
+          <span>£150.00</span>
+        </div>
+
+      </div>
+
+
+      <div class="button-stack">
+
+        <button class="secondary" onclick="toast('Invoice saved as draft')">
+          Save Draft
+        </button>
+
+        <button class="primary" onclick="sendInvoice()">
+          Send Invoice
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- SUCCESS -->
+
+    <section id="success" class="screen">
+
+      <div class="success">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <h2>Invoice sent</h2>
+
+        <p>
+          The job has been completed and the invoice has been
+          prepared and sent to the customer.
+        </p>
+
+        <button
+          class="primary"
+          style="margin-top:25px"
+          onclick="showScreen('dashboard')"
+        >
+          Back to Dashboard
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- CUSTOMERS -->
+
+    <section id="customers" class="screen">
+
+      <div class="section-heading">
+        <div>
+          <h2>Customers</h2>
+          <span class="date">Your client list</span>
+        </div>
+      </div>
+
+
+      <div class="customer">
+        <div class="customer-icon">MF</div>
+
+        <div>
+          <strong>Manor Farm House</strong>
+          <small>Regular garden maintenance</small>
+        </div>
+      </div>
+
+
+      <div class="customer">
+        <div class="customer-icon">OV</div>
+
+        <div>
+          <strong>Oak View</strong>
+          <small>Lawn Rescue customer</small>
+        </div>
+      </div>
+
+
+      <div class="customer">
+        <div class="customer-icon">WC</div>
+
+        <div>
+          <strong>Willow Cottage</strong>
+          <small>Garden maintenance</small>
+        </div>
+      </div>
+
+
+      <button
+        class="primary"
+        style="margin-top:10px"
+        onclick="toast('New customer feature coming next')"
+      >
+        + Add Customer
+      </button>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+
+    <section id="settings" class="screen">
+
+      <div class="section-heading">
+        <div>
+          <h2>Settings</h2>
+          <span class="date">LeafSync</span>
+        </div>
+      </div>
+
+
+      <div class="settings-card">
+
+        <div class="setting">
+          <div>
+            <span>Business Details</span>
+            <small>Name, address & contact details</small>
+          </div>
+
+          <strong>›</strong>
+        </div>
+
+
+        <div class="setting">
+          <div>
+            <span>QuickBooks</span>
+            <small>Accounting integration</small>
+          </div>
+
+          <strong>›</strong>
+        </div>
+
+
+        <div class="setting">
+          <div>
+            <span>Job Templates</span>
+            <small>Create reusable job types</small>
+          </div>
+
+          <strong>›</strong>
+        </div>
+
+
+        <div class="setting">
+          <div>
+            <span>Invoice Settings</span>
+            <small>Numbers, payment details & email</small>
+          </div>
+
+          <strong>›</strong>
+        </div>
+
+
+        <div class="setting">
+          <div>
+            <span>Notifications</span>
+            <small>Job and invoice alerts</small>
+          </div>
+
+          <strong>›</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- NAVIGATION -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-btn active"
+      data-screen="dashboard"
+      onclick="navTo('dashboard', this)"
+    >
+      <span class="icon">⌂</span>
+      Today
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-screen="customers"
+      onclick="navTo('customers', this)"
+    >
+      <span class="icon">♙</span>
+      Customers
+    </button>
+
+
+    <button
+      class="nav-btn"
+      onclick="toast('Notifications: No new alerts')"
+    >
+      <span class="icon">◉</span>
+      Alerts
+    </button>
+
+
+    <button
+      class="nav-btn"
+      data-screen="settings"
+      onclick="navTo('settings', this)"
+    >
+      <span class="icon">⚙</span>
+      Settings
+    </button>
+
+  </nav>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+  let jobCompleted = false;
+  let complianceComplete = false;
+
+
+  function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+    const target = document.getElementById(id);
+
+    if (target) {
+      target.classList.add("active");
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function navTo(screen, button) {
+
+    showScreen(screen);
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+  }
+
+
+  function openJob() {
+    showScreen("jobDetails");
+  }
+
+
+  const complianceChecks =
+    document.querySelectorAll(".complianceCheck");
+
+
+  complianceChecks.forEach(check => {
+
+    check.addEventListener("change", updateCompliance);
+
+  });
+
+
+  function updateCompliance() {
+
+    const checked =
+      document.querySelectorAll(
+        ".complianceCheck:checked"
+      ).length;
+
+    const total = complianceChecks.length;
+
+    const percent =
+      (checked / total) * 100;
+
+    document.getElementById("progressBar").style.width =
+      percent + "%";
+
+    document.getElementById("progressText").textContent =
+      checked + " / " + total;
+
+  }
+
+
+  function saveCompliance() {
+
+    const checked =
+      document.querySelectorAll(
+        ".complianceCheck:checked"
+      ).length;
+
+    if (checked !== complianceChecks.length) {
+
+      toast("Complete all safety checks first");
+      return;
+
+    }
+
+    complianceComplete = true;
+
+    toast("Compliance check saved");
+
+    setTimeout(() => {
+      showScreen("jobDetails");
+    }, 600);
+
+  }
+
+
+  function completeJob() {
+
+    const tasks =
+      document.querySelectorAll(".jobTask");
+
+    const completedTasks =
+      document.querySelectorAll(".jobTask:checked");
+
+    if (completedTasks.length !== tasks.length) {
+
+      toast("Tick off all completed work first");
+      return;
+
+    }
+
+    if (!complianceComplete) {
+
+      toast("Complete the compliance check first");
+      return;
+
+    }
+
+    jobCompleted = true;
+
+    document.getElementById("job1Badge").textContent =
+      "COMPLETE";
+
+    document.getElementById("job1Badge").className =
+      "badge complete";
+
+    document.getElementById("completeCount").textContent =
+      "1";
+
+    showScreen("invoice");
+
+  }
+
+
+  function sendInvoice() {
+
+    if (!jobCompleted) {
+
+      toast("Complete the job first");
+      return;
+
+    }
+
+    showScreen("success");
+
+  }
+
+
+  function toast(message) {
+
+    const element =
+      document.getElementById("toast");
+
+    element.textContent = message;
+
+    element.classList.add("show");
+
+    setTimeout(() => {
+
+      element.classList.remove("show");
+
+    }, 2200);
+
+  }
+
+</script>
+
+</body>
+</html>
