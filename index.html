@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <meta name="theme-color" content="#12382d">
+
 <title>LeafSync | Landscaping. In sync.</title>
 
+<!-- LeafSync phone / browser icon -->
+<link rel="icon" type="image/png" href="LeafSync.png">
+<link rel="apple-touch-icon" href="LeafSync.png">
+
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,7 +41,14 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
   background: #dfe5e1;
   color: var(--ink);
   min-height: 100vh;
@@ -58,7 +75,13 @@ button {
 /* HEADER */
 
 .header {
-  background: linear-gradient(145deg, var(--forest), var(--forest-light));
+  background:
+    linear-gradient(
+      145deg,
+      var(--forest),
+      var(--forest-light)
+    );
+
   color: white;
   padding: 20px 20px 30px;
   border-radius: 0 0 32px 32px;
@@ -111,7 +134,6 @@ button {
   margin-top: 5px;
   color: var(--gold-light);
   font-size: 12px;
-  letter-spacing: .2px;
 }
 
 .profile {
@@ -212,7 +234,6 @@ main {
 
 .section-heading h2 {
   font-size: 20px;
-  letter-spacing: -.3px;
 }
 
 .section-heading small {
@@ -370,7 +391,6 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
   accent-color: var(--leaf);
-  flex-shrink: 0;
 }
 
 textarea {
@@ -382,10 +402,6 @@ textarea {
   padding: 12px;
   background: #fbfcfb;
   outline: none;
-}
-
-textarea:focus {
-  border-color: var(--leaf);
 }
 
 /* COMPLIANCE */
@@ -412,7 +428,11 @@ textarea:focus {
 .progress-bar {
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg,var(--leaf),var(--gold));
+  background: linear-gradient(
+    90deg,
+    var(--leaf),
+    var(--gold)
+  );
   transition: .25s;
 }
 
@@ -641,6 +661,7 @@ nav {
 }
 
 @media (min-width:600px) {
+
   body {
     padding: 28px 0;
   }
@@ -650,9 +671,12 @@ nav {
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,.14);
   }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -671,25 +695,45 @@ nav {
       >
 
       <div>
-        <div class="brand-name">LeafSync</div>
-        <div class="tagline">Landscaping. In sync.</div>
+
+        <div class="brand-name">
+          LeafSync
+        </div>
+
+        <div class="tagline">
+          Landscaping. In sync.
+        </div>
+
       </div>
 
     </div>
 
-    <div class="profile">PK</div>
+    <div class="profile">
+      PK
+    </div>
 
   </div>
 
+
   <div class="welcome">
-    <small>Good afternoon</small>
-    <h2>Ready for the day?</h2>
+
+    <small>
+      Good afternoon
+    </small>
+
+    <h2>
+      Ready for the day?
+    </h2>
+
   </div>
 
 </header>
 
 
 <main>
+
+
+<!-- DASHBOARD -->
 
 <section id="dashboard" class="screen active">
 
@@ -714,8 +758,15 @@ nav {
 
 
   <div class="section-heading">
-    <h2>Today's Jobs</h2>
-    <small>14 September</small>
+
+    <h2>
+      Today's Jobs
+    </h2>
+
+    <small>
+      14 September
+    </small>
+
   </div>
 
 
@@ -724,25 +775,53 @@ nav {
     <div class="job-top">
 
       <div>
-        <div class="job-time">09:00 – 11:00</div>
-        <h3>Manor Farm House</h3>
-        <div class="muted">Garden maintenance</div>
+
+        <div class="job-time">
+          09:00 – 11:00
+        </div>
+
+        <h3>
+          Manor Farm House
+        </h3>
+
+        <div class="muted">
+          Garden maintenance
+        </div>
+
       </div>
 
-      <span id="jobBadge" class="badge next">
+      <span
+        id="jobBadge"
+        class="badge next">
         NEXT
       </span>
 
     </div>
 
+
     <div class="chips">
-      <span class="chip">Mowing</span>
-      <span class="chip">Strimming</span>
-      <span class="chip">Hedge cutting</span>
+
+      <span class="chip">
+        Mowing
+      </span>
+
+      <span class="chip">
+        Strimming
+      </span>
+
+      <span class="chip">
+        Hedge cutting
+      </span>
+
     </div>
 
-    <button class="primary" onclick="openJob()">
+
+    <button
+      class="primary"
+      onclick="openJob()">
+
       Open Job
+
     </button>
 
   </div>
@@ -753,9 +832,19 @@ nav {
     <div class="job-top">
 
       <div>
-        <div class="job-time">11:30 – 13:00</div>
-        <h3>Oak View</h3>
-        <div class="muted">Lawn Rescue</div>
+
+        <div class="job-time">
+          11:30 – 13:00
+        </div>
+
+        <h3>
+          Oak View
+        </h3>
+
+        <div class="muted">
+          Lawn Rescue
+        </div>
+
       </div>
 
       <span class="badge scheduled">
@@ -764,14 +853,30 @@ nav {
 
     </div>
 
+
     <div class="chips">
-      <span class="chip">Scarify</span>
-      <span class="chip">Topsoil</span>
-      <span class="chip">Reseed</span>
+
+      <span class="chip">
+        Scarify
+      </span>
+
+      <span class="chip">
+        Topsoil
+      </span>
+
+      <span class="chip">
+        Reseed
+      </span>
+
     </div>
 
-    <button class="primary" onclick="toast('Job opened')">
+
+    <button
+      class="primary"
+      onclick="toast('Job opened')">
+
       Open Job
+
     </button>
 
   </div>
@@ -782,9 +887,19 @@ nav {
     <div class="job-top">
 
       <div>
-        <div class="job-time">14:30 – 16:30</div>
-        <h3>Willow Cottage</h3>
-        <div class="muted">Garden maintenance</div>
+
+        <div class="job-time">
+          14:30 – 16:30
+        </div>
+
+        <h3>
+          Willow Cottage
+        </h3>
+
+        <div class="muted">
+          Garden maintenance
+        </div>
+
       </div>
 
       <span class="badge scheduled">
@@ -793,14 +908,30 @@ nav {
 
     </div>
 
+
     <div class="chips">
-      <span class="chip">Weeding</span>
-      <span class="chip">Pruning</span>
-      <span class="chip">Waste removal</span>
+
+      <span class="chip">
+        Weeding
+      </span>
+
+      <span class="chip">
+        Pruning
+      </span>
+
+      <span class="chip">
+        Waste removal
+      </span>
+
     </div>
 
-    <button class="primary" onclick="toast('Job opened')">
+
+    <button
+      class="primary"
+      onclick="toast('Job opened')">
+
       Open Job
+
     </button>
 
   </div>
@@ -808,89 +939,172 @@ nav {
 </section>
 
 
+<!-- JOB DETAILS -->
+
 <section id="jobDetails" class="screen">
 
-  <button class="back" onclick="showScreen('dashboard')">
+  <button
+    class="back"
+    onclick="showScreen('dashboard')">
+
     ← Back to Today's Jobs
+
   </button>
+
 
   <div class="card">
 
-    <div class="job-time">09:00 – 11:00</div>
+    <div class="job-time">
+      09:00 – 11:00
+    </div>
 
-    <h2>Manor Farm House</h2>
+    <h2>
+      Manor Farm House
+    </h2>
 
     <div class="muted">
       Garden maintenance
     </div>
 
-    <div class="label">Work Scheduled</div>
+
+    <div class="label">
+      Work Scheduled
+    </div>
+
 
     <label class="check-row">
-      <input type="checkbox" class="jobTask">
-      <span>Mow lawns</span>
+      <input
+        type="checkbox"
+        class="jobTask">
+      <span>
+        Mow lawns
+      </span>
     </label>
+
 
     <label class="check-row">
-      <input type="checkbox" class="jobTask">
-      <span>Strim lawn edges</span>
+      <input
+        type="checkbox"
+        class="jobTask">
+      <span>
+        Strim lawn edges
+      </span>
     </label>
+
 
     <label class="check-row">
-      <input type="checkbox" class="jobTask">
-      <span>Cut hedges</span>
+      <input
+        type="checkbox"
+        class="jobTask">
+      <span>
+        Cut hedges
+      </span>
     </label>
+
 
     <label class="check-row">
-      <input type="checkbox" class="jobTask">
-      <span>Remove green waste</span>
+      <input
+        type="checkbox"
+        class="jobTask">
+      <span>
+        Remove green waste
+      </span>
     </label>
 
-    <div class="label">Job Notes</div>
 
-    <textarea placeholder="Add notes about today's job..."></textarea>
+    <div class="label">
+      Job Notes
+    </div>
+
+
+    <textarea
+      placeholder="Add notes about today's job...">
+    </textarea>
 
   </div>
 
-  <button class="secondary" onclick="showScreen('compliance')">
+
+  <button
+    class="secondary"
+    onclick="showScreen('compliance')">
+
     Complete Compliance Check
+
   </button>
 
-  <button class="secondary" onclick="toast('Photo added to job')">
+
+  <button
+    class="secondary"
+    onclick="toast('Photo added to job')">
+
     + Add Job Photos
+
   </button>
 
-  <button class="primary" onclick="completeJob()">
+
+  <button
+    class="primary"
+    onclick="completeJob()">
+
     Complete Job
+
   </button>
 
 </section>
 
 
+<!-- COMPLIANCE -->
+
 <section id="compliance" class="screen">
 
-  <button class="back" onclick="showScreen('jobDetails')">
+  <button
+    class="back"
+    onclick="showScreen('jobDetails')">
+
     ← Back to Job
+
   </button>
+
 
   <div class="section-heading">
 
     <div>
-      <h2>Compliance Check</h2>
-      <small>Manor Farm House</small>
+
+      <h2>
+        Compliance Check
+      </h2>
+
+      <small>
+        Manor Farm House
+      </small>
+
     </div>
 
   </div>
+
 
   <div class="progress-wrap">
 
     <div class="progress-top">
-      <span>Safety check</span>
-      <span id="progressText">0 / 5</span>
+
+      <span>
+        Safety check
+      </span>
+
+      <span id="progressText">
+        0 / 5
+      </span>
+
     </div>
 
+
     <div class="progress">
-      <div id="progressBar" class="progress-bar"></div>
+
+      <div
+        id="progressBar"
+        class="progress-bar">
+      </div>
+
     </div>
 
   </div>
@@ -898,13 +1112,20 @@ nav {
 
   <label class="compliance-item">
 
-    <input type="checkbox" class="complianceCheck">
+    <input
+      type="checkbox"
+      class="complianceCheck">
 
     <div>
-      <strong>PPE checked</strong>
+
+      <strong>
+        PPE checked
+      </strong>
+
       <small>
         Appropriate PPE is available and being worn.
       </small>
+
     </div>
 
   </label>
@@ -912,13 +1133,20 @@ nav {
 
   <label class="compliance-item">
 
-    <input type="checkbox" class="complianceCheck">
+    <input
+      type="checkbox"
+      class="complianceCheck">
 
     <div>
-      <strong>Tools inspected</strong>
+
+      <strong>
+        Tools inspected
+      </strong>
+
       <small>
         Equipment is safe, secure and fit for use.
       </small>
+
     </div>
 
   </label>
@@ -926,13 +1154,20 @@ nav {
 
   <label class="compliance-item">
 
-    <input type="checkbox" class="complianceCheck">
+    <input
+      type="checkbox"
+      class="complianceCheck">
 
     <div>
-      <strong>Work area assessed</strong>
+
+      <strong>
+        Work area assessed
+      </strong>
+
       <small>
         Hazards and access issues have been identified.
       </small>
+
     </div>
 
   </label>
@@ -940,13 +1175,20 @@ nav {
 
   <label class="compliance-item">
 
-    <input type="checkbox" class="complianceCheck">
+    <input
+      type="checkbox"
+      class="complianceCheck">
 
     <div>
-      <strong>Public & property protected</strong>
+
+      <strong>
+        Public & property protected
+      </strong>
+
       <small>
         Safe working distances and protection are in place.
       </small>
+
     </div>
 
   </label>
@@ -954,36 +1196,61 @@ nav {
 
   <label class="compliance-item">
 
-    <input type="checkbox" class="complianceCheck">
+    <input
+      type="checkbox"
+      class="complianceCheck">
 
     <div>
-      <strong>Weather conditions safe</strong>
+
+      <strong>
+        Weather conditions safe
+      </strong>
+
       <small>
         Conditions are suitable for the planned work.
       </small>
+
     </div>
 
   </label>
 
 
-  <button class="primary" onclick="saveCompliance()">
+  <button
+    class="primary"
+    onclick="saveCompliance()">
+
     Save Compliance Check
+
   </button>
 
 </section>
 
 
+<!-- INVOICE -->
+
 <section id="invoice" class="screen">
 
-  <button class="back" onclick="showScreen('dashboard')">
+  <button
+    class="back"
+    onclick="showScreen('dashboard')">
+
     ← Dashboard
+
   </button>
+
 
   <div class="section-heading">
 
     <div>
-      <h2>Invoice Preview</h2>
-      <small>Ready to send</small>
+
+      <h2>
+        Invoice Preview
+      </h2>
+
+      <small>
+        Ready to send
+      </small>
+
     </div>
 
   </div>
@@ -998,17 +1265,22 @@ nav {
         <img
           src="LeafSync.png"
           alt="LeafSync"
-          class="invoice-logo"
-        >
+          class="invoice-logo">
 
         <div>
-          <strong>LeafSync</strong>
+
+          <strong>
+            LeafSync
+          </strong>
+
           <div class="muted">
             Landscaping Services
           </div>
+
         </div>
 
       </div>
+
 
       <div class="muted">
         INV-001
@@ -1017,47 +1289,92 @@ nav {
     </div>
 
 
-    <div class="label">Customer</div>
+    <div class="label">
+      Customer
+    </div>
 
-    <strong>Manor Farm House</strong>
+    <strong>
+      Manor Farm House
+    </strong>
 
 
     <div class="invoice-row">
-      <span>Garden maintenance</span>
-      <strong>£150.00</strong>
+
+      <span>
+        Garden maintenance
+      </span>
+
+      <strong>
+        £150.00
+      </strong>
+
     </div>
 
+
     <div class="invoice-row">
-      <span>VAT</span>
-      <span>£0.00</span>
+
+      <span>
+        VAT
+      </span>
+
+      <span>
+        £0.00
+      </span>
+
     </div>
+
 
     <div class="invoice-total">
-      <span>Total</span>
-      <span>£150.00</span>
+
+      <span>
+        Total
+      </span>
+
+      <span>
+        £150.00
+      </span>
+
     </div>
 
   </div>
 
 
-  <button class="secondary" onclick="toast('Invoice saved as draft')">
+  <button
+    class="secondary"
+    onclick="toast('Invoice saved as draft')">
+
     Save Draft
+
   </button>
 
-  <button class="primary" onclick="sendInvoice()">
+
+  <button
+    class="primary"
+    onclick="sendInvoice()">
+
     Send Invoice
+
   </button>
 
 </section>
 
+
+<!-- CUSTOMERS -->
 
 <section id="customers" class="screen">
 
   <div class="section-heading">
 
     <div>
-      <h2>Customers</h2>
-      <small>Your customer list</small>
+
+      <h2>
+        Customers
+      </h2>
+
+      <small>
+        Your customer list
+      </small>
+
     </div>
 
   </div>
@@ -1065,11 +1382,20 @@ nav {
 
   <div class="customer">
 
-    <div class="customer-icon">MF</div>
+    <div class="customer-icon">
+      MF
+    </div>
 
     <div>
-      <strong>Manor Farm House</strong>
-      <small>Regular garden maintenance</small>
+
+      <strong>
+        Manor Farm House
+      </strong>
+
+      <small>
+        Regular garden maintenance
+      </small>
+
     </div>
 
   </div>
@@ -1077,11 +1403,20 @@ nav {
 
   <div class="customer">
 
-    <div class="customer-icon">OV</div>
+    <div class="customer-icon">
+      OV
+    </div>
 
     <div>
-      <strong>Oak View</strong>
-      <small>Lawn Rescue customer</small>
+
+      <strong>
+        Oak View
+      </strong>
+
+      <small>
+        Lawn Rescue customer
+      </small>
+
     </div>
 
   </div>
@@ -1089,30 +1424,52 @@ nav {
 
   <div class="customer">
 
-    <div class="customer-icon">WC</div>
+    <div class="customer-icon">
+      WC
+    </div>
 
     <div>
-      <strong>Willow Cottage</strong>
-      <small>Garden maintenance</small>
+
+      <strong>
+        Willow Cottage
+      </strong>
+
+      <small>
+        Garden maintenance
+      </small>
+
     </div>
 
   </div>
 
 
-  <button class="primary" onclick="toast('Add customer coming next')">
+  <button
+    class="primary"
+    onclick="toast('Add customer coming next')">
+
     + Add Customer
+
   </button>
 
 </section>
 
+
+<!-- SETTINGS -->
 
 <section id="settings" class="screen">
 
   <div class="section-heading">
 
     <div>
-      <h2>Settings</h2>
-      <small>LeafSync</small>
+
+      <h2>
+        Settings
+      </h2>
+
+      <small>
+        LeafSync
+      </small>
+
     </div>
 
   </div>
@@ -1121,51 +1478,128 @@ nav {
   <div class="settings-card">
 
     <div class="setting">
+
       <div>
-        <strong>Business Details</strong>
-        <small>Company and contact information</small>
+
+        <strong>
+          Business Details
+        </strong>
+
+        <small>
+          Company and contact information
+        </small>
+
       </div>
-      <span class="arrow">›</span>
+
+      <span class="arrow">
+        ›
+      </span>
+
     </div>
 
-    <div class="setting">
-      <div>
-        <strong>QuickBooks</strong>
-        <small>Accounting integration</small>
-      </div>
-      <span class="arrow">›</span>
-    </div>
 
     <div class="setting">
+
       <div>
-        <strong>Job Templates</strong>
-        <small>Create reusable jobs</small>
+
+        <strong>
+          QuickBooks
+        </strong>
+
+        <small>
+          Accounting integration
+        </small>
+
       </div>
-      <span class="arrow">›</span>
+
+      <span class="arrow">
+        ›
+      </span>
+
     </div>
 
-    <div class="setting">
-      <div>
-        <strong>Recurring Jobs</strong>
-        <small>Manage repeat customers</small>
-      </div>
-      <span class="arrow">›</span>
-    </div>
 
     <div class="setting">
+
       <div>
-        <strong>Invoice Settings</strong>
-        <small>Numbers and payment details</small>
+
+        <strong>
+          Job Templates
+        </strong>
+
+        <small>
+          Create reusable jobs
+        </small>
+
       </div>
-      <span class="arrow">›</span>
+
+      <span class="arrow">
+        ›
+      </span>
+
     </div>
 
+
     <div class="setting">
+
       <div>
-        <strong>Notifications</strong>
-        <small>Job and invoice alerts</small>
+
+        <strong>
+          Recurring Jobs
+        </strong>
+
+        <small>
+          Manage repeat customers
+        </small>
+
       </div>
-      <span class="arrow">›</span>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </div>
+
+
+    <div class="setting">
+
+      <div>
+
+        <strong>
+          Invoice Settings
+        </strong>
+
+        <small>
+          Numbers and payment details
+        </small>
+
+      </div>
+
+      <span class="arrow">
+        ›
+      </span>
+
+    </div>
+
+
+    <div class="setting">
+
+      <div>
+
+        <strong>
+          Notifications
+        </strong>
+
+        <small>
+          Job and invoice alerts
+        </small>
+
+      </div>
+
+      <span class="arrow">
+        ›
+      </span>
+
     </div>
 
   </div>
@@ -1173,54 +1607,83 @@ nav {
 </section>
 
 
+<!-- SUCCESS -->
+
 <section id="success" class="screen">
 
   <div class="success">
 
-    <div class="success-icon">✓</div>
+    <div class="success-icon">
+      ✓
+    </div>
 
-    <h2>Job Complete</h2>
+    <h2>
+      Job Complete
+    </h2>
 
     <p>
       The job has been completed and the invoice
       has been sent to the customer.
     </p>
 
-    <button class="primary" onclick="showScreen('dashboard')">
+
+    <button
+      class="primary"
+      onclick="showScreen('dashboard')">
+
       Back to Dashboard
+
     </button>
 
   </div>
 
 </section>
 
+
 </main>
 
 
+<!-- NAVIGATION -->
+
 <nav>
 
-  <button class="nav-button active"
-          onclick="navigate('dashboard',this)">
+  <button
+    class="nav-button active"
+    onclick="navigate('dashboard',this)">
+
     <span>⌂</span>
     Today
+
   </button>
 
-  <button class="nav-button"
-          onclick="navigate('customers',this)">
+
+  <button
+    class="nav-button"
+    onclick="navigate('customers',this)">
+
     <span>♙</span>
     Customers
+
   </button>
 
-  <button class="nav-button"
-          onclick="toast('No new notifications')">
+
+  <button
+    class="nav-button"
+    onclick="toast('No new notifications')">
+
     <span>◉</span>
     Alerts
+
   </button>
 
-  <button class="nav-button"
-          onclick="navigate('settings',this)">
+
+  <button
+    class="nav-button"
+    onclick="navigate('settings',this)">
+
     <span>⚙</span>
     Settings
+
   </button>
 
 </nav>
@@ -1239,11 +1702,15 @@ let jobComplete = false;
 
 function showScreen(id) {
 
-  document.querySelectorAll(".screen").forEach(function(screen) {
-    screen.classList.remove("active");
-  });
+  document.querySelectorAll(".screen")
+    .forEach(function(screen) {
 
-  document.getElementById(id).classList.add("active");
+      screen.classList.remove("active");
+
+    });
+
+  document.getElementById(id)
+    .classList.add("active");
 
   window.scrollTo(0,0);
 }
@@ -1253,16 +1720,21 @@ function navigate(id,button) {
 
   showScreen(id);
 
-  document.querySelectorAll(".nav-button").forEach(function(nav) {
-    nav.classList.remove("active");
-  });
+  document.querySelectorAll(".nav-button")
+    .forEach(function(nav) {
+
+      nav.classList.remove("active");
+
+    });
 
   button.classList.add("active");
 }
 
 
 function openJob() {
+
   showScreen("jobDetails");
+
 }
 
 
@@ -1275,7 +1747,9 @@ complianceChecks.forEach(function(box) {
   box.addEventListener("change",function() {
 
     const checked =
-      document.querySelectorAll(".complianceCheck:checked").length;
+      document.querySelectorAll(
+        ".complianceCheck:checked"
+      ).length;
 
     const total =
       complianceChecks.length;
@@ -1283,10 +1757,14 @@ complianceChecks.forEach(function(box) {
     const percentage =
       (checked / total) * 100;
 
-    document.getElementById("progressText").textContent =
+    document.getElementById(
+      "progressText"
+    ).textContent =
       checked + " / " + total;
 
-    document.getElementById("progressBar").style.width =
+    document.getElementById(
+      "progressBar"
+    ).style.width =
       percentage + "%";
 
   });
@@ -1297,21 +1775,30 @@ complianceChecks.forEach(function(box) {
 function saveCompliance() {
 
   const checked =
-    document.querySelectorAll(".complianceCheck:checked").length;
+    document.querySelectorAll(
+      ".complianceCheck:checked"
+    ).length;
 
   if (checked !== complianceChecks.length) {
 
-    toast("Complete all safety checks first");
+    toast(
+      "Complete all safety checks first"
+    );
+
     return;
 
   }
 
   complianceComplete = true;
 
-  toast("Compliance check saved");
+  toast(
+    "Compliance check saved"
+  );
 
   setTimeout(function() {
+
     showScreen("jobDetails");
+
   },600);
 
 }
@@ -1323,31 +1810,43 @@ function completeJob() {
     document.querySelectorAll(".jobTask");
 
   const completed =
-    document.querySelectorAll(".jobTask:checked");
+    document.querySelectorAll(
+      ".jobTask:checked"
+    );
 
   if (completed.length !== tasks.length) {
 
-    toast("Tick off all completed work first");
+    toast(
+      "Tick off all completed work first"
+    );
+
     return;
 
   }
 
   if (!complianceComplete) {
 
-    toast("Complete the compliance check first");
+    toast(
+      "Complete the compliance check first"
+    );
+
     return;
 
   }
 
   jobComplete = true;
 
-  document.getElementById("completedCount").textContent = "1";
+  document.getElementById(
+    "completedCount"
+  ).textContent = "1";
 
   const badge =
     document.getElementById("jobBadge");
 
   badge.textContent = "COMPLETE";
-  badge.className = "badge complete";
+
+  badge.className =
+    "badge complete";
 
   showScreen("invoice");
 
@@ -1358,7 +1857,10 @@ function sendInvoice() {
 
   if (!jobComplete) {
 
-    toast("Complete the job first");
+    toast(
+      "Complete the job first"
+    );
+
     return;
 
   }
@@ -1373,12 +1875,15 @@ function toast(message) {
   const box =
     document.getElementById("toast");
 
-  box.textContent = message;
+  box.textContent =
+    message;
 
   box.classList.add("show");
 
   setTimeout(function() {
+
     box.classList.remove("show");
+
   },2200);
 
 }
