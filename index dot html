@@ -1,9 +1,74 @@
+
+Like Friday, what you were asking me to look for isn't there. I haven't seen it. It's not on 363 where you asked me to look
+
+Checking.
+
+You're right to push back. Ignore that number, my mistake. Instead, press control F in the code editor and search exactly for slash style with the angle brackets. It'll jump right there. Tell me the line number it finds.
+
+
+565
+
+Checking. There we go. Five-six-five. That explains it. So, stay right there. Under that slash style on five-six-five, tell me what you see on the next three lines: five-six-six, five-six-seven, and five-six-eight.
+
+
+Sla- slash head
+
+Yep.
+
+
+And there's nothing on 567, then 568 says body. Nothing on 569, and then 570 says div class equals app
+
+Checking.
+
+Perfect. That's fine. The blank lines don't matter. So structure is okay. Now, press control F again and search for the phrase "Landscaping. In sync." That text should exist in the visible part of the page. Tell me if it finds it and what line number.
+
+
+Can't find it
+
+Checking.
+
+
+Friday, I want you to do something, just stop everything you're doing right now
+
+Okay, stopping.
+
+
+i want yyou to completley start again a give me a new code for the app 
+
+Yep. We’ll wipe the slate clean and rebuild LeafSync from scratch as one fresh index.html.
+
+This version will be:
+
+one single file
+
+mobile-first
+
+green/gold LeafSync styling
+
+dashboard with Today’s Jobs
+
+job details
+
+compliance checklist
+
+complete-job flow
+
+invoice preview
+
+customers
+
+settings
+
+working navigation and buttons
+
+Copy everything below into index.html, replacing whatever is there now:
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#173f32">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173f32" />
   <title>LeafSync</title>
 
   <style>
@@ -15,25 +80,27 @@
 
     :root {
       --green: #173f32;
-      --green2: #245b49;
-      --pale: #eaf2ee;
-      --gold: #d5b66b;
+      --green-mid: #245b49;
+      --green-soft: #eaf2ee;
+      --gold: #d7b76c;
       --cream: #f6f5f0;
       --white: #ffffff;
       --text: #202722;
       --muted: #748078;
-      --border: #e0e6e2;
-      --shadow: 0 7px 25px rgba(0,0,0,.08);
+      --border: #e1e6e2;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      --danger: #a74444;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
-      background: #e1e5e2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #dfe4e1;
       color: var(--text);
     }
 
-    button, textarea, input {
+    button,
+    textarea,
+    input {
       font: inherit;
     }
 
@@ -42,45 +109,45 @@
     }
 
     .app {
+      width: 100%;
       max-width: 480px;
+      min-height: 100vh;
       margin: auto;
       background: var(--cream);
-      min-height: 100vh;
-      padding-bottom: 85px;
+      padding-bottom: 82px;
     }
 
-    /* HEADER */
-
-    header {
+    .header {
       background: var(--green);
       color: white;
-      padding: 25px 21px 28px;
+      padding: 24px 20px 28px;
       border-radius: 0 0 28px 28px;
     }
 
-    .top {
+    .header-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 12px;
     }
 
     .logo {
-      width: 47px;
-      height: 47px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: var(--gold);
       color: var(--green);
-      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 27px;
       font-weight: 900;
-      font-size: 26px;
     }
 
     .brand h1 {
@@ -89,37 +156,35 @@
     }
 
     .tagline {
-      color: #ccd9d3;
+      margin-top: 4px;
       font-size: 12px;
-      margin-top: 5px;
+      color: #ccd8d3;
     }
 
     .avatar {
       width: 42px;
       height: 42px;
-      background: var(--green2);
       border-radius: 50%;
+      background: var(--green-mid);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       font-weight: 800;
       border: 2px solid rgba(255,255,255,.2);
     }
 
     .welcome {
-      margin-top: 27px;
+      margin-top: 28px;
     }
 
     .welcome small {
-      color: #cbd8d2;
+      color: #ccd8d3;
     }
 
     .welcome h2 {
-      font-size: 25px;
       margin-top: 4px;
+      font-size: 24px;
     }
-
-    /* CONTENT */
 
     main {
       padding: 20px 17px;
@@ -133,55 +198,52 @@
       display: block;
     }
 
-    .heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-    }
-
-    .heading h2 {
-      font-size: 20px;
-    }
-
-    .heading small {
-      color: var(--muted);
-    }
-
-    /* STATS */
-
     .stats {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 9px;
       margin-bottom: 24px;
     }
 
     .stat {
       background: white;
-      padding: 14px 7px;
       border-radius: 17px;
+      padding: 14px 8px;
       text-align: center;
       box-shadow: var(--shadow);
     }
 
     .stat strong {
       display: block;
-      color: var(--green);
       font-size: 22px;
+      color: var(--green);
+      margin-bottom: 3px;
     }
 
-    .stat small {
+    .stat span {
       color: var(--muted);
       font-size: 10px;
     }
 
-    /* JOBS */
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
 
-    .job {
+    .section-heading h2 {
+      font-size: 20px;
+    }
+
+    .section-heading small {
+      color: var(--muted);
+    }
+
+    .job-card {
       background: white;
-      padding: 17px;
       border-radius: 20px;
+      padding: 17px;
       margin-bottom: 12px;
       box-shadow: var(--shadow);
     }
@@ -192,16 +254,16 @@
       gap: 12px;
     }
 
-    .time {
+    .job-time {
       color: var(--green);
       font-size: 12px;
       font-weight: 800;
       margin-bottom: 6px;
     }
 
-    .job h3 {
+    .job-card h3 {
       font-size: 17px;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .muted {
@@ -211,29 +273,29 @@
     }
 
     .badge {
-      height: 25px;
+      height: 26px;
       padding: 0 9px;
-      display: flex;
+      border-radius: 999px;
+      display: inline-flex;
       align-items: center;
-      border-radius: 20px;
       font-size: 9px;
       font-weight: 900;
       white-space: nowrap;
     }
 
-    .next {
-      background: #fff2d0;
-      color: #8c6715;
+    .badge.next {
+      background: #fff2d3;
+      color: #866315;
     }
 
-    .scheduled {
-      background: var(--pale);
+    .badge.scheduled {
+      background: var(--green-soft);
       color: var(--green);
     }
 
-    .complete {
-      background: #def1e4;
-      color: #22623a;
+    .badge.complete {
+      background: #dff1e5;
+      color: #24613c;
     }
 
     .chips {
@@ -244,11 +306,11 @@
     }
 
     .chip {
-      background: #f0f2f0;
-      border-radius: 20px;
       padding: 6px 9px;
+      background: #f0f2f0;
+      border-radius: 999px;
+      color: #59635d;
       font-size: 10px;
-      color: #5b655e;
     }
 
     .primary {
@@ -256,10 +318,10 @@
       border: 0;
       background: var(--green);
       color: white;
-      padding: 13px;
       border-radius: 13px;
-      font-weight: 800;
+      padding: 13px;
       margin-top: 14px;
+      font-weight: 800;
     }
 
     .secondary {
@@ -267,10 +329,10 @@
       border: 1px solid var(--border);
       background: white;
       color: var(--green);
-      padding: 13px;
       border-radius: 13px;
-      font-weight: 700;
+      padding: 13px;
       margin-top: 9px;
+      font-weight: 700;
     }
 
     .back {
@@ -278,31 +340,28 @@
       background: transparent;
       color: var(--green);
       font-weight: 700;
-      padding: 4px 0;
       margin-bottom: 16px;
+      padding: 4px 0;
     }
-
-    /* DETAIL CARD */
 
     .card {
       background: white;
-      border-radius: 21px;
-      padding: 19px;
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      padding: 18px;
       margin-bottom: 14px;
+      box-shadow: var(--shadow);
     }
 
     .label {
-      color: var(--muted);
       font-size: 9px;
       text-transform: uppercase;
-      font-weight: 900;
       letter-spacing: .8px;
-      margin-top: 18px;
-      margin-bottom: 7px;
+      color: var(--muted);
+      font-weight: 900;
+      margin: 18px 0 8px;
     }
 
-    .check {
+    .check-row {
       display: flex;
       gap: 11px;
       align-items: center;
@@ -310,11 +369,11 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .check:last-child {
+    .check-row:last-child {
       border-bottom: 0;
     }
 
-    input[type=checkbox] {
+    input[type="checkbox"] {
       width: 20px;
       height: 20px;
       accent-color: var(--green);
@@ -322,59 +381,65 @@
 
     textarea {
       width: 100%;
-      min-height: 95px;
+      min-height: 100px;
+      resize: vertical;
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 12px;
       background: #fafbfa;
-      resize: vertical;
     }
 
-    /* COMPLIANCE */
+    .progress-wrap {
+      margin-bottom: 16px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
 
     .progress {
-      background: #dce5e0;
       height: 8px;
-      border-radius: 20px;
+      background: #dce5e0;
+      border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 17px;
     }
 
-    .bar {
+    .progress-bar {
+      width: 0%;
       height: 100%;
       background: var(--green);
-      width: 0%;
-      transition: .25s;
+      transition: .2s;
     }
 
-    .compliance {
+    .compliance-item {
       background: white;
-      padding: 15px;
       border-radius: 16px;
-      margin-bottom: 9px;
+      padding: 15px;
       display: flex;
-      align-items: flex-start;
       gap: 11px;
+      align-items: flex-start;
+      margin-bottom: 9px;
       box-shadow: 0 4px 14px rgba(0,0,0,.04);
     }
 
-    .compliance strong {
+    .compliance-item strong {
       display: block;
       font-size: 14px;
     }
 
-    .compliance small {
-      color: var(--muted);
+    .compliance-item small {
       display: block;
+      color: var(--muted);
       margin-top: 3px;
       line-height: 1.4;
     }
 
-    /* INVOICE */
-
     .invoice {
       background: white;
-      border-radius: 21px;
+      border-radius: 20px;
       padding: 20px;
       box-shadow: var(--shadow);
     }
@@ -394,21 +459,19 @@
       font-size: 13px;
     }
 
-    .total {
+    .invoice-total {
       display: flex;
       justify-content: space-between;
-      padding-top: 19px;
-      color: var(--green);
-      font-weight: 900;
+      padding-top: 18px;
       font-size: 20px;
+      font-weight: 900;
+      color: var(--green);
     }
-
-    /* CUSTOMERS */
 
     .customer {
       background: white;
-      padding: 15px;
       border-radius: 17px;
+      padding: 15px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -419,12 +482,12 @@
     .customer-icon {
       width: 42px;
       height: 42px;
-      background: var(--pale);
-      color: var(--green);
       border-radius: 13px;
+      background: var(--green-soft);
+      color: var(--green);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       font-weight: 900;
     }
 
@@ -437,21 +500,19 @@
       color: var(--muted);
     }
 
-    /* SETTINGS */
-
-    .settings {
+    .settings-card {
       background: white;
-      padding: 3px 16px;
       border-radius: 20px;
+      padding: 3px 16px;
       box-shadow: var(--shadow);
     }
 
     .setting {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .setting:last-child {
@@ -464,17 +525,15 @@
       margin-top: 3px;
     }
 
-    /* SUCCESS */
-
     .success {
       text-align: center;
-      padding: 45px 12px;
+      padding: 44px 12px;
     }
 
-    .tick {
-      margin: auto auto 20px;
-      width: 75px;
-      height: 75px;
+    .success-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
       border-radius: 50%;
       background: var(--green);
       color: white;
@@ -490,8 +549,6 @@
       line-height: 1.5;
     }
 
-    /* NAV */
-
     nav {
       position: fixed;
       bottom: 0;
@@ -503,11 +560,11 @@
       background: rgba(255,255,255,.97);
       border-top: 1px solid var(--border);
       display: grid;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-columns: repeat(4, 1fr);
       z-index: 50;
     }
 
-    .nav {
+    .nav-button {
       border: 0;
       background: transparent;
       color: #929a95;
@@ -516,29 +573,27 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 3px;
+      gap: 4px;
     }
 
-    .nav span {
+    .nav-button span {
       font-size: 20px;
     }
 
-    .nav.active {
+    .nav-button.active {
       color: var(--green);
       font-weight: 800;
     }
 
-    /* TOAST */
-
     #toast {
       position: fixed;
-      bottom: 85px;
       left: 50%;
-      transform: translate(-50%,20px);
+      bottom: 84px;
+      transform: translate(-50%, 20px);
       background: #202722;
       color: white;
-      padding: 11px 15px;
       border-radius: 12px;
+      padding: 11px 15px;
       font-size: 12px;
       opacity: 0;
       pointer-events: none;
@@ -548,12 +603,12 @@
 
     #toast.show {
       opacity: 1;
-      transform: translate(-50%,0);
+      transform: translate(-50%, 0);
     }
 
-    @media(min-width:600px) {
+    @media (min-width: 600px) {
       body {
-        padding: 25px 0;
+        padding: 28px 0;
       }
 
       .app {
@@ -567,808 +622,590 @@
 
 <body>
 
-<div class="app">
+  <div class="app">
 
-<header>
+    <header class="header">
 
-  <div class="top">
+      <div class="header-top">
 
-    <div class="brand">
-      <div class="logo">L</div>
+        <div class="brand">
+          <div class="logo">L</div>
 
-      <div>
-        <h1>LeafSync</h1>
-        <div class="tagline">Landscaping. In sync.</div>
-      </div>
-    </div>
-
-    <div class="avatar">PK</div>
-
-  </div>
-
-  <div class="welcome">
-    <small>Good afternoon</small>
-    <h2>Ready for the day?</h2>
-  </div>
-
-</header>
-
-
-<main>
-
-<!-- DASHBOARD -->
-
-<section id="dashboard" class="screen active">
-
-  <div class="stats">
-
-    <div class="stat">
-      <strong>3</strong>
-      <small>Jobs today</small>
-    </div>
-
-    <div class="stat">
-      <strong id="completed">0</strong>
-      <small>Completed</small>
-    </div>
-
-    <div class="stat">
-      <strong>£150</strong>
-      <small>Today</small>
-    </div>
-
-  </div>
-
-
-  <div class="heading">
-    <h2>Today's Jobs</h2>
-    <small>14 September</small>
-  </div>
-
-
-  <div class="job">
-
-    <div class="job-top">
-
-      <div>
-        <div class="time">09:00 – 11:00</div>
-        <h3>Manor Farm House</h3>
-        <div class="muted">Garden maintenance</div>
-      </div>
-
-      <div id="firstBadge" class="badge next">
-        NEXT
-      </div>
-
-    </div>
-
-    <div class="chips">
-      <div class="chip">Mowing</div>
-      <div class="chip">Strimming</div>
-      <div class="chip">Hedge cutting</div>
-    </div>
-
-    <button class="primary" onclick="openJob()">
-      Open Job
-    </button>
-
-  </div>
-
-
-  <div class="job">
-
-    <div class="job-top">
-
-      <div>
-        <div class="time">11:30 – 13:00</div>
-        <h3>Oak View</h3>
-        <div class="muted">Lawn Rescue</div>
-      </div>
-
-      <div class="badge scheduled">
-        SCHEDULED
-      </div>
-
-    </div>
-
-    <div class="chips">
-      <div class="chip">Scarify</div>
-      <div class="chip">Topsoil</div>
-      <div class="chip">Reseed</div>
-    </div>
-
-    <button class="primary"
-      onclick="message('Job opened')">
-      Open Job
-    </button>
-
-  </div>
-
-
-  <div class="job">
-
-    <div class="job-top">
-
-      <div>
-        <div class="time">14:30 – 16:30</div>
-        <h3>Willow Cottage</h3>
-        <div class="muted">Garden maintenance</div>
-      </div>
-
-      <div class="badge scheduled">
-        SCHEDULED
-      </div>
-
-    </div>
-
-    <div class="chips">
-      <div class="chip">Weeding</div>
-      <div class="chip">Pruning</div>
-      <div class="chip">Waste removal</div>
-    </div>
-
-    <button class="primary"
-      onclick="message('Job opened')">
-      Open Job
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- JOB DETAILS -->
-
-<section id="job" class="screen">
-
-  <button class="back"
-    onclick="show('dashboard')">
-    ← Back to Today's Jobs
-  </button>
-
-
-  <div class="card">
-
-    <div class="time">09:00 – 11:00</div>
-
-    <h2>Manor Farm House</h2>
-
-    <div class="muted">
-      Garden maintenance
-    </div>
-
-
-    <div class="label">
-      Work Scheduled
-    </div>
-
-
-    <label class="check">
-      <input type="checkbox" class="task">
-      <span>Mow lawns</span>
-    </label>
-
-
-    <label class="check">
-      <input type="checkbox" class="task">
-      <span>Strim lawn edges</span>
-    </label>
-
-
-    <label class="check">
-      <input type="checkbox" class="task">
-      <span>Cut hedges</span>
-    </label>
-
-
-    <label class="check">
-      <input type="checkbox" class="task">
-      <span>Remove green waste</span>
-    </label>
-
-
-    <div class="label">
-      Job Notes
-    </div>
-
-    <textarea
-      placeholder="Add notes about the job..."></textarea>
-
-  </div>
-
-
-  <button class="secondary"
-    onclick="show('compliance')">
-    Complete Compliance Check
-  </button>
-
-
-  <button class="secondary"
-    onclick="message('Photo added to job')">
-    + Add Job Photos
-  </button>
-
-
-  <button class="primary"
-    onclick="finishJob()">
-    Complete Job
-  </button>
-
-</section>
-
-
-<!-- COMPLIANCE -->
-
-<section id="compliance" class="screen">
-
-  <button class="back"
-    onclick="show('job')">
-    ← Back to Job
-  </button>
-
-
-  <div class="heading">
-
-    <div>
-      <h2>Compliance Check</h2>
-      <small>Manor Farm House</small>
-    </div>
-
-    <small id="progressText">0 / 5</small>
-
-  </div>
-
-
-  <div class="progress">
-    <div id="bar" class="bar"></div>
-  </div>
-
-
-  <label class="compliance">
-
-    <input type="checkbox" class="safety">
-
-    <div>
-      <strong>PPE checked</strong>
-      <small>
-        Appropriate PPE is available and being worn.
-      </small>
-    </div>
-
-  </label>
-
-
-  <label class="compliance">
-
-    <input type="checkbox" class="safety">
-
-    <div>
-      <strong>Tools inspected</strong>
-      <small>
-        Equipment is safe, secure and fit for use.
-      </small>
-    </div>
-
-  </label>
-
-
-  <label class="compliance">
-
-    <input type="checkbox" class="safety">
-
-    <div>
-      <strong>Work area assessed</strong>
-      <small>
-        Hazards and access issues have been identified.
-      </small>
-    </div>
-
-  </label>
-
-
-  <label class="compliance">
-
-    <input type="checkbox" class="safety">
-
-    <div>
-      <strong>Public & property protected</strong>
-      <small>
-        Safe working distances and protection are in place.
-      </small>
-    </div>
-
-  </label>
-
-
-  <label class="compliance">
-
-    <input type="checkbox" class="safety">
-
-    <div>
-      <strong>Weather conditions safe</strong>
-      <small>
-        Conditions are suitable for the planned work.
-      </small>
-    </div>
-
-  </label>
-
-
-  <button class="primary"
-    onclick="saveSafety()">
-    Save Compliance Check
-  </button>
-
-</section>
-
-
-<!-- INVOICE -->
-
-<section id="invoice" class="screen">
-
-  <button class="back"
-    onclick="show('dashboard')">
-    ← Dashboard
-  </button>
-
-
-  <div class="heading">
-
-    <div>
-      <h2>Invoice Preview</h2>
-      <small>Ready to send</small>
-    </div>
-
-  </div>
-
-
-  <div class="invoice">
-
-    <div class="invoice-head">
-
-      <div>
-        <strong>LeafSync</strong>
-        <div class="muted">
-          Landscaping Services
+          <div>
+            <h1>LeafSync</h1>
+            <div class="tagline">Landscaping. In sync.</div>
+          </div>
         </div>
+
+        <div class="avatar">PK</div>
+
       </div>
 
-      <div class="muted">
-        INV-001
+      <div class="welcome">
+        <small>Good afternoon</small>
+        <h2>Ready for the day?</h2>
       </div>
 
-    </div>
+    </header>
 
+    <main>
 
-    <div class="label">
-      Customer
-    </div>
+      <section id="dashboard" class="screen active">
 
-    <strong>Manor Farm House</strong>
+        <div class="stats">
 
+          <div class="stat">
+            <strong>3</strong>
+            <span>Jobs today</span>
+          </div>
 
-    <div class="invoice-row">
-      <span>Garden maintenance</span>
-      <strong>£150.00</strong>
-    </div>
+          <div class="stat">
+            <strong id="completedCount">0</strong>
+            <span>Completed</span>
+          </div>
 
+          <div class="stat">
+            <strong>£150</strong>
+            <span>Today</span>
+          </div>
 
-    <div class="invoice-row">
-      <span>VAT</span>
-      <span>£0.00</span>
-    </div>
+        </div>
 
+        <div class="section-heading">
+          <h2>Today's Jobs</h2>
+          <small>14 September</small>
+        </div>
 
-    <div class="total">
-      <span>Total</span>
-      <span>£150.00</span>
-    </div>
+        <div class="job-card">
+
+          <div class="job-top">
+
+            <div>
+              <div class="job-time">09:00 – 11:00</div>
+              <h3>Manor Farm House</h3>
+              <div class="muted">Garden maintenance</div>
+            </div>
+
+            <span class="badge next" id="jobBadge">NEXT</span>
+
+          </div>
+
+          <div class="chips">
+            <span class="chip">Mowing</span>
+            <span class="chip">Strimming</span>
+            <span class="chip">Hedge cutting</span>
+          </div>
+
+          <button class="primary" onclick="openJob()">
+            Open Job
+          </button>
+
+        </div>
+
+        <div class="job-card">
+
+          <div class="job-top">
+
+            <div>
+              <div class="job-time">11:30 – 13:00</div>
+              <h3>Oak View</h3>
+              <div class="muted">Lawn Rescue</div>
+            </div>
+
+            <span class="badge scheduled">SCHEDULED</span>
+
+          </div>
+
+          <div class="chips">
+            <span class="chip">Scarify</span>
+            <span class="chip">Topsoil</span>
+            <span class="chip">Reseed</span>
+          </div>
+
+          <button class="primary" onclick="toast('Job opened')">
+            Open Job
+          </button>
+
+        </div>
+
+        <div class="job-card">
+
+          <div class="job-top">
+
+            <div>
+              <div class="job-time">14:30 – 16:30</div>
+              <h3>Willow Cottage</h3>
+              <div class="muted">Garden maintenance</div>
+            </div>
+
+            <span class="badge scheduled">SCHEDULED</span>
+
+          </div>
+
+          <div class="chips">
+            <span class="chip">Weeding</span>
+            <span class="chip">Pruning</span>
+            <span class="chip">Waste removal</span>
+          </div>
+
+          <button class="primary" onclick="toast('Job opened')">
+            Open Job
+          </button>
+
+        </div>
+
+      </section>
+
+      <section id="jobDetails" class="screen">
+
+        <button class="back" onclick="showScreen('dashboard')">
+          ← Back to Today's Jobs
+        </button>
+
+        <div class="card">
+
+          <div class="job-time">09:00 – 11:00</div>
+
+          <h2>Manor Farm House</h2>
+
+          <div class="muted">Garden maintenance</div>
+
+          <div class="label">Work Scheduled</div>
+
+          <label class="check-row">
+            <input type="checkbox" class="jobTask" />
+            <span>Mow lawns</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" class="jobTask" />
+            <span>Strim lawn edges</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" class="jobTask" />
+            <span>Cut hedges</span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" class="jobTask" />
+            <span>Remove green waste</span>
+          </label>
+
+          <div class="label">Job Notes</div>
+
+          <textarea placeholder="Add notes about today's job..."></textarea>
+
+        </div>
+
+        <button class="secondary" onclick="showScreen('compliance')">
+          Complete Compliance Check
+        </button>
+
+        <button class="secondary" onclick="toast('Photo added to job')">
+          + Add Job Photos
+        </button>
+
+        <button class="primary" onclick="completeJob()">
+          Complete Job
+        </button>
+
+      </section>
+
+      <section id="compliance" class="screen">
+
+        <button class="back" onclick="showScreen('jobDetails')">
+          ← Back to Job
+        </button>
+
+        <div class="section-heading">
+          <div>
+            <h2>Compliance Check</h2>
+            <small>Manor Farm House</small>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+
+          <div class="progress-top">
+            <span>Safety check</span>
+            <span id="progressText">0 / 5</span>
+          </div>
+
+          <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+
+        </div>
+
+        <label class="compliance-item">
+          <input type="checkbox" class="complianceCheck" />
+          <div>
+            <strong>PPE checked</strong>
+            <small>Appropriate PPE is available and being worn.</small>
+          </div>
+        </label>
+
+        <label class="compliance-item">
+          <input type="checkbox" class="complianceCheck" />
+          <div>
+            <strong>Tools inspected</strong>
+            <small>Equipment is safe, secure and fit for use.</small>
+          </div>
+        </label>
+
+        <label class="compliance-item">
+          <input type="checkbox" class="complianceCheck" />
+          <div>
+            <strong>Work area assessed</strong>
+            <small>Hazards and access issues have been identified.</small>
+          </div>
+        </label>
+
+        <label class="compliance-item">
+          <input type="checkbox" class="complianceCheck" />
+          <div>
+            <strong>Public & property protected</strong>
+            <small>Safe working distances and protection are in place.</small>
+          </div>
+        </label>
+
+        <label class="compliance-item">
+          <input type="checkbox" class="complianceCheck" />
+          <div>
+            <strong>Weather conditions safe</strong>
+            <small>Conditions are suitable for the planned work.</small>
+          </div>
+        </label>
+
+        <button class="primary" onclick="saveCompliance()">
+          Save Compliance Check
+        </button>
+
+      </section>
+
+      <section id="invoice" class="screen">
+
+        <button class="back" onclick="showScreen('dashboard')">
+          ← Dashboard
+        </button>
+
+        <div class="section-heading">
+          <div>
+            <h2>Invoice Preview</h2>
+            <small>Ready to send</small>
+          </div>
+        </div>
+
+        <div class="invoice">
+
+          <div class="invoice-head">
+
+            <div>
+              <strong>LeafSync</strong>
+              <div class="muted">Landscaping Services</div>
+            </div>
+
+            <div class="muted">INV-001</div>
+
+          </div>
+
+          <div class="label">Customer</div>
+
+          <strong>Manor Farm House</strong>
+
+          <div class="invoice-row">
+            <span>Garden maintenance</span>
+            <strong>£150.00</strong>
+          </div>
+
+          <div class="invoice-row">
+            <span>VAT</span>
+            <span>£0.00</span>
+          </div>
+
+          <div class="invoice-total">
+            <span>Total</span>
+            <span>£150.00</span>
+          </div>
+
+        </div>
+
+        <button class="secondary" onclick="toast('Invoice saved as draft')">
+          Save Draft
+        </button>
+
+        <button class="primary" onclick="sendInvoice()">
+          Send Invoice
+        </button>
+
+      </section>
+
+      <section id="customers" class="screen">
+
+        <div class="section-heading">
+          <div>
+            <h2>Customers</h2>
+            <small>Your customer list</small>
+          </div>
+        </div>
+
+        <div class="customer">
+          <div class="customer-icon">MF</div>
+          <div>
+            <strong>Manor Farm House</strong>
+            <small>Regular garden maintenance</small>
+          </div>
+        </div>
+
+        <div class="customer">
+          <div class="customer-icon">OV</div>
+          <div>
+            <strong>Oak View</strong>
+            <small>Lawn Rescue customer</small>
+          </div>
+        </div>
+
+        <div class="customer">
+          <div class="customer-icon">WC</div>
+          <div>
+            <strong>Willow Cottage</strong>
+            <small>Garden maintenance</small>
+          </div>
+        </div>
+
+        <button class="primary" onclick="toast('Add customer feature coming next')">
+          + Add Customer
+        </button>
+
+      </section>
+
+      <section id="settings" class="screen">
+
+        <div class="section-heading">
+          <div>
+            <h2>Settings</h2>
+            <small>LeafSync</small>
+          </div>
+        </div>
+
+        <div class="settings-card">
+
+          <div class="setting">
+            <div>
+              <strong>Business Details</strong>
+              <small>Company and contact information</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+          <div class="setting">
+            <div>
+              <strong>QuickBooks</strong>
+              <small>Accounting integration</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+          <div class="setting">
+            <div>
+              <strong>Job Templates</strong>
+              <small>Create reusable jobs</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+          <div class="setting">
+            <div>
+              <strong>Recurring Jobs</strong>
+              <small>Manage repeat customers</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+          <div class="setting">
+            <div>
+              <strong>Invoice Settings</strong>
+              <small>Numbers and payment details</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+          <div class="setting">
+            <div>
+              <strong>Notifications</strong>
+              <small>Job and invoice alerts</small>
+            </div>
+            <strong>›</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="success" class="screen">
+
+        <div class="success">
+
+          <div class="success-icon">✓</div>
+
+          <h2>Job Complete</h2>
+
+          <p>
+            The job has been completed and the invoice has been sent to the customer.
+          </p>
+
+          <button class="primary" onclick="showScreen('dashboard')">
+            Back to Dashboard
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <nav>
+
+      <button class="nav-button active" onclick="navigate('dashboard', this)">
+        <span>⌂</span>
+        Today
+      </button>
+
+      <button class="nav-button" onclick="navigate('customers', this)">
+        <span>♙</span>
+        Customers
+      </button>
+
+      <button class="nav-button" onclick="toast('No new notifications')">
+        <span>◉</span>
+        Alerts
+      </button>
+
+      <button class="nav-button" onclick="navigate('settings', this)">
+        <span>⚙</span>
+        Settings
+      </button>
+
+    </nav>
 
   </div>
 
+  <div id="toast"></div>
 
-  <button class="secondary"
-    onclick="message('Invoice saved as draft')">
-    Save Draft
-  </button>
+  <script>
+    let complianceComplete = false;
+    let jobComplete = false;
 
+    function showScreen(id) {
+      document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+      });
 
-  <button class="primary"
-    onclick="sendInvoice()">
-    Send Invoice
-  </button>
+      document.getElementById(id).classList.add("active");
+      window.scrollTo(0, 0);
+    }
 
-</section>
+    function navigate(id, button) {
+      showScreen(id);
 
+      document.querySelectorAll(".nav-button").forEach(function(nav) {
+        nav.classList.remove("active");
+      });
 
-<!-- CUSTOMERS -->
+      button.classList.add("active");
+    }
 
-<section id="customers" class="screen">
+    function openJob() {
+      showScreen("jobDetails");
+    }
 
-  <div class="heading">
+    const complianceBoxes = document.querySelectorAll(".complianceCheck");
 
-    <div>
-      <h2>Customers</h2>
-      <small>Your customer list</small>
-    </div>
-
-  </div>
-
-
-  <div class="customer">
-
-    <div class="customer-icon">MF</div>
-
-    <div>
-      <strong>Manor Farm House</strong>
-      <small>Regular garden maintenance</small>
-    </div>
-
-  </div>
-
-
-  <div class="customer">
-
-    <div class="customer-icon">OV</div>
-
-    <div>
-      <strong>Oak View</strong>
-      <small>Lawn Rescue customer</small>
-    </div>
-
-  </div>
-
-
-  <div class="customer">
-
-    <div class="customer-icon">WC</div>
-
-    <div>
-      <strong>Willow Cottage</strong>
-      <small>Garden maintenance</small>
-    </div>
-
-  </div>
-
-
-  <button class="primary"
-    onclick="message('Add customer coming next')">
-    + Add Customer
-  </button>
-
-</section>
-
-
-<!-- SETTINGS -->
-
-<section id="settings" class="screen">
-
-  <div class="heading">
-
-    <div>
-      <h2>Settings</h2>
-      <small>LeafSync</small>
-    </div>
-
-  </div>
-
-
-  <div class="settings">
-
-    <div class="setting">
-      <div>
-        <strong>Business Details</strong>
-        <small>
-          Company and contact information
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-
-    <div class="setting">
-      <div>
-        <strong>QuickBooks</strong>
-        <small>
-          Accounting integration
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-
-    <div class="setting">
-      <div>
-        <strong>Job Templates</strong>
-        <small>
-          Create reusable jobs
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-
-    <div class="setting">
-      <div>
-        <strong>Recurring Jobs</strong>
-        <small>
-          Manage repeat customers
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-
-    <div class="setting">
-      <div>
-        <strong>Invoice Settings</strong>
-        <small>
-          Invoice numbers and payment details
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-
-    <div class="setting">
-      <div>
-        <strong>Notifications</strong>
-        <small>
-          Job and invoice alerts
-        </small>
-      </div>
-      <strong>›</strong>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- SUCCESS -->
-
-<section id="success" class="screen">
-
-  <div class="success">
-
-    <div class="tick">✓</div>
-
-    <h2>Job complete</h2>
-
-    <p>
-      The job has been completed and the invoice
-      has been sent to the customer.
-    </p>
-
-    <button class="primary"
-      onclick="show('dashboard')">
-      Back to Dashboard
-    </button>
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- NAVIGATION -->
-
-<nav>
-
-  <button class="nav active"
-    onclick="navigate('dashboard',this)">
-    <span>⌂</span>
-    Today
-  </button>
-
-
-  <button class="nav"
-    onclick="navigate('customers',this)">
-    <span>♙</span>
-    Customers
-  </button>
-
-
-  <button class="nav"
-    onclick="message('No new notifications')">
-    <span>◉</span>
-    Alerts
-  </button>
-
-
-  <button class="nav"
-    onclick="navigate('settings',this)">
-    <span>⚙</span>
-    Settings
-  </button>
-
-</nav>
-
-</div>
-
-
-<div id="toast"></div>
-
-
-<script>
-
-let complianceDone = false;
-let jobDone = false;
-
-
-/* CHANGE SCREENS */
-
-function show(id) {
-
-  document.querySelectorAll(".screen")
-    .forEach(function(screen) {
-      screen.classList.remove("active");
+    complianceBoxes.forEach(function(box) {
+      box.addEventListener("change", updateCompliance);
     });
 
-  document.getElementById(id)
-    .classList.add("active");
-
-  window.scrollTo(0,0);
-}
-
-
-/* NAVIGATION */
-
-function navigate(id,button) {
-
-  show(id);
-
-  document.querySelectorAll(".nav")
-    .forEach(function(nav) {
-      nav.classList.remove("active");
-    });
-
-  button.classList.add("active");
-}
-
-
-/* OPEN JOB */
-
-function openJob() {
-  show("job");
-}
-
-
-/* COMPLIANCE PROGRESS */
-
-const safety =
-  document.querySelectorAll(".safety");
-
-safety.forEach(function(box) {
-
-  box.addEventListener("change",function() {
-
-    const checked =
-      document.querySelectorAll(
-        ".safety:checked"
-      ).length;
-
-    const total = safety.length;
-
-    document.getElementById("progressText")
-      .textContent =
-      checked + " / " + total;
-
-    document.getElementById("bar")
-      .style.width =
-      ((checked / total) * 100) + "%";
-
-  });
-
-});
-
-
-/* SAVE COMPLIANCE */
-
-function saveSafety() {
-
-  const checked =
-    document.querySelectorAll(
-      ".safety:checked"
-    ).length;
-
-  if (checked !== safety.length) {
-
-    message("Complete all safety checks first");
-    return;
-
-  }
-
-  complianceDone = true;
-
-  message("Compliance check saved");
-
-  setTimeout(function() {
-    show("job");
-  },600);
-
-}
-
-
-/* COMPLETE JOB */
-
-function finishJob() {
-
-  const tasks =
-    document.querySelectorAll(".task");
-
-  const finished =
-    document.querySelectorAll(
-      ".task:checked"
-    );
-
-  if (finished.length !== tasks.length) {
-
-    message("Tick off all completed work first");
-    return;
-
-  }
-
-  if (!complianceDone) {
-
-    message("Complete the compliance check first");
-    return;
-
-  }
-
-  jobDone = true;
-
-  document.getElementById("completed")
-    .textContent = "1";
-
-  const badge =
-    document.getElementById("firstBadge");
-
-  badge.textContent = "COMPLETE";
-  badge.className = "badge complete";
-
-  show("invoice");
-
-}
-
-
-/* SEND INVOICE */
-
-function sendInvoice() {
-
-  if (!jobDone) {
-
-    message("Complete the job first");
-    return;
-
-  }
-
-  show("success");
-
-}
-
-
-/* POPUP MESSAGE */
-
-function message(text) {
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent = text;
-
-  toast.classList.add("show");
-
-  setTimeout(function() {
-
-    toast.classList.remove("show");
-
-  },2200);
-
-}
-
-</script>
+    function updateCompliance() {
+      const checked = document.querySelectorAll(".complianceCheck:checked").length;
+      const total = complianceBoxes.length;
+      const percentage = (checked / total) * 100;
+
+      document.getElementById("progressText").textContent =
+        checked + " / " + total;
+
+      document.getElementById("progressBar").style.width =
+        percentage + "%";
+    }
+
+    function saveCompliance() {
+      const checked = document.querySelectorAll(".complianceCheck:checked").length;
+
+      if (checked !== complianceBoxes.length) {
+        toast("Complete all safety checks first");
+        return;
+      }
+
+      complianceComplete = true;
+      toast("Compliance check saved");
+
+      setTimeout(function() {
+        showScreen("jobDetails");
+      }, 600);
+    }
+
+    function completeJob() {
+      const tasks = document.querySelectorAll(".jobTask");
+      const checkedTasks = document.querySelectorAll(".jobTask:checked");
+
+      if (checkedTasks.length !== tasks.length) {
+        toast("Tick off all completed work first");
+        return;
+      }
+
+      if (!complianceComplete) {
+        toast("Complete the compliance check first");
+        return;
+      }
+
+      jobComplete = true;
+
+      document.getElementById("completedCount").textContent = "1";
+
+      const badge = document.getElementById("jobBadge");
+      badge.textContent = "COMPLETE";
+      badge.className = "badge complete";
+
+      showScreen("invoice");
+    }
+
+    function sendInvoice() {
+      if (!jobComplete) {
+        toast("Complete the job first");
+        return;
+      }
+
+      showScreen("success");
+    }
+
+    function toast(message) {
+      const toastBox = document.getElementById("toast");
+
+      toastBox.textContent = message;
+      toastBox.classList.add("show");
+
+      setTimeout(function() {
+        toastBox.classList.remove("show");
+      }, 2200);
+    }
+  </script>
 
 </body>
 </html>
+After you paste it, don’t change anything else. Just hit Commit changes. Then we’ll check the live site from there.
+
+How was this conversation?
+Your feedback helps us improve how Voice speaks, listens, and sounds.
+
+
+
