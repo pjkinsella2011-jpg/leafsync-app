@@ -1,68 +1,3 @@
-
-Like Friday, what you were asking me to look for isn't there. I haven't seen it. It's not on 363 where you asked me to look
-
-Checking.
-
-You're right to push back. Ignore that number, my mistake. Instead, press control F in the code editor and search exactly for slash style with the angle brackets. It'll jump right there. Tell me the line number it finds.
-
-
-565
-
-Checking. There we go. Five-six-five. That explains it. So, stay right there. Under that slash style on five-six-five, tell me what you see on the next three lines: five-six-six, five-six-seven, and five-six-eight.
-
-
-Sla- slash head
-
-Yep.
-
-
-And there's nothing on 567, then 568 says body. Nothing on 569, and then 570 says div class equals app
-
-Checking.
-
-Perfect. That's fine. The blank lines don't matter. So structure is okay. Now, press control F again and search for the phrase "Landscaping. In sync." That text should exist in the visible part of the page. Tell me if it finds it and what line number.
-
-
-Can't find it
-
-Checking.
-
-
-Friday, I want you to do something, just stop everything you're doing right now
-
-Okay, stopping.
-
-
-i want yyou to completley start again a give me a new code for the app 
-
-Yep. We’ll wipe the slate clean and rebuild LeafSync from scratch as one fresh index.html.
-
-This version will be:
-
-one single file
-
-mobile-first
-
-green/gold LeafSync styling
-
-dashboard with Today’s Jobs
-
-job details
-
-compliance checklist
-
-complete-job flow
-
-invoice preview
-
-customers
-
-settings
-
-working navigation and buttons
-
-Copy everything below into index.html, replacing whatever is there now:
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1202,10 +1137,3 @@ Copy everything below into index.html, replacing whatever is there now:
 
 </body>
 </html>
-After you paste it, don’t change anything else. Just hit Commit changes. Then we’ll check the live site from there.
-
-How was this conversation?
-Your feedback helps us improve how Voice speaks, listens, and sounds.
-
-
-
